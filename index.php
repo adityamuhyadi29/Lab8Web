@@ -50,7 +50,7 @@ $result = mysqli_query($conn, $sql);
                     <td><?= $row['id_barang']; ?></td>
                 </tr>
                 <a href="ubah.php?id=<?= $row['id_barang']; ?>">Ubah</a>
-
+                <a href="hapus.php?id=<?= $row['id_barang']; ?>"onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
                     <?php endwhile; ?>
 
                 <?php else: ?>
