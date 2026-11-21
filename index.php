@@ -49,6 +49,7 @@ $result = mysqli_query($conn, $sql);
                     <td><?= $row['stok']; ?></td>
                     <td><?= $row['id_barang']; ?></td>
                 </tr>
+                <a href="ubah.php?id=<?= $row['id_barang']; ?>">Ubah</a>
 
                     <?php endwhile; ?>
 
