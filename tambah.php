@@ -11,18 +11,22 @@ if (isset($_POST['submit'])) {
     $harga_beli = $_POST['harga_beli'];
     $stok = $_POST['stok'];
 
-    $file_gambar = $_FILES['file_gambar'];
+    
     $gambar = null;
 
     // Proses upload gambar
-    if ($file_gambar['error'] == 0) {
+    if (isset($_FILES['file_gambar']) &&
+        $_FILES['file_gambar']['error'] == 0) {
 
-        $filename = str_replace(' ', '_', $file_gambar['name']);
+        $filename = basename($_FILES['file_gambar']['name']);
 
-        $destination = dirname(__FILE__) . '/gambar/' . $filename;
+        $destination = 'gambar/' . $filename;
 
-        if (move_uploaded_file($file_gambar['tmp_name'], $destination)) {
-            $gambar = 'gambar/' . $filename;
+        if (move_uploaded_file(
+            $_FILES['file_gambar']['tmp_name'],
+            $destination
+        )) {
+            $gambar = $filename;
         }
     }
 

@@ -1,4 +1,3 @@
-
 <?php
 include("koneksi.php");
 
@@ -10,6 +9,7 @@ $result = mysqli_query($conn, $sql);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,12 +34,19 @@ $result = mysqli_query($conn, $sql);
                 </tr>
 
                 <?php if($result): ?>
-                    <?php while($row = mysqli_fetch_array($result)): ?>
+                <?php while($row = mysqli_fetch_array($result)): ?>
 
                 <tr>
                     <td>
-                        <img src="gambar/<?= $row['gambar']; ?>"
-                             alt="<?= $row['nama']; ?>">
+                        <?php if (!empty($row['gambar'])): ?>
+                        <img src="gambar/<?= htmlspecialchars($row['gambar']); ?>" width="80">
+                        <?php else: ?>
+                        Tidak ada gambar
+                        <?php endif; ?>
+
+                        <a href="ubah.php?id=<?= $row['id_barang']; ?>">Ubah</a>
+                        <a href="hapus.php?id=<?= $row['id_barang']; ?>"
+                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
                     </td>
 
                     <td><?= $row['nama']; ?></td>
@@ -49,18 +56,18 @@ $result = mysqli_query($conn, $sql);
                     <td><?= $row['stok']; ?></td>
                     <td><?= $row['id_barang']; ?></td>
                 </tr>
-                <a href="ubah.php?id=<?= $row['id_barang']; ?>">Ubah</a>
-                <a href="hapus.php?id=<?= $row['id_barang']; ?>"onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
-                    <?php endwhile; ?>
+
+                <?php endwhile; ?>
 
                 <?php else: ?>
-                    <tr>
-                        <td colspan="7">Belum ada data</td>
-                    </tr>
+                <tr>
+                    <td colspan="7">Belum ada data</td>
+                </tr>
                 <?php endif; ?>
 
             </table>
         </div>
     </div>
 </body>
+
 </html>
