@@ -1,7 +1,7 @@
 # Lab8Web
 Menghubungkan PHP ke Database
 
-📂 Struktur Folder
+# 📂 Struktur Folder
 
 Lab8Web/
 │
@@ -14,7 +14,7 @@ Lab8Web/
 ├── style.css
 └── README.md
 
-🚀 Langkah-Langkah Praktikum
+# 🚀 Langkah-Langkah Praktikum
 
 1. Persiapan
 
@@ -166,7 +166,7 @@ Hasil yang sudah diberi di perbaiki dan di beri style css
 
 ![Hasil Ubah barang](screenshot/ss14.png)
 
-📝 Kesimpulan
+# 📝 Kesimpulan
 
 Berdasarkan praktikum yang telah dilakukan, dapat disimpulkan bahwa PHP dapat digunakan untuk menghubungkan aplikasi web dengan database MySQL. Dengan menerapkan konsep CRUD, pengguna dapat melakukan pengelolaan data barang mulai dari menambahkan, menampilkan, mengubah, hingga menghapus data.
 
